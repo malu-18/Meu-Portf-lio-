@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7dbe2">
+    <meta name="description" content="Portfólio pessoal de Maria Luíza: estudos, cursos, sonhos e um pouco sobre mim.">
+    <title>Maria Luíza | Meu portfólio</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --pink: #e87591;
+            --pink-dark: #8e3f58;
+            --pink-light: #f8e5e9;
+            --yellow: #f5d77b;
+            --yellow-light: #fff4c9;
+            --ink: #38272d;
+            --muted: #705e63;
+            --paper: #fffaf6;
+            --line: #ead8d8;
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        a { color: inherit; }
+
+        .site-header {
+            position: sticky;
+            z-index: 5;
+            top: 0;
+            border-bottom: 1px solid rgba(142, 63, 88, .12);
+            background: rgba(255, 250, 246, .94);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-wrap {
+            width: min(1120px, calc(100% - 40px));
+            min-height: 68px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .wordmark {
+            color: var(--pink-dark);
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(14px, 3vw, 30px);
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover, .text-link:hover { color: var(--pink-dark); }
+
+        main { overflow: hidden; }
+
+        .hero {
+            position: relative;
+            padding: 62px 0 70px;
+            background:
+                radial-gradient(ellipse at 88% 12%, rgba(245, 215, 123, .55), transparent 25%),
+                radial-gradient(ellipse at 9% 90%, rgba(232, 117, 145, .19), transparent 32%),
+                var(--pink-light);
+        }
+
+        .hero-inner {
+            width: min(1120px, calc(100% - 40px));
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            align-items: center;
+            gap: clamp(32px, 7vw, 90px);
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--pink-dark);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        h1, h2, h3, p { margin-top: 0; }
+
+        h1, h2, h3 { font-weight: 700; }
+
+        h1 {
+            max-width: 600px;
+            margin-bottom: 18px;
+            font-family: var(--serif);
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.08;
+        }
+
+        h1 span { color: var(--pink-dark); }
+
+        .hero-copy {
+            max-width: 510px;
+            margin-bottom: 26px;
+            color: #56464b;
+            font-size: 17px;
+        }
+
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .button {
+            min-height: 46px;
+            padding: 10px 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--pink-dark);
+            border-radius: 4px;
+            background: var(--pink-dark);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, background-color .2s ease;
+        }
+
+        .button:hover { transform: translateY(-2px); background: #713348; }
+
+        .button.secondary { background: transparent; color: var(--pink-dark); }
+        .button.secondary:hover { background: rgba(255, 255, 255, .55); }
+
+        .hero-photo-wrap { position: relative; width: min(100%, 400px); justify-self: end; }
+
+        .hero-photo-wrap::before {
+            position: absolute;
+            z-index: 0;
+            inset: 18px -16px -16px 18px;
+            border: 2px solid var(--pink);
+            content: "";
+        }
+
+        .hero-photo {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 470px;
+            display: block;
+            border-radius: 3px;
+            object-fit: cover;
+            object-position: center 35%;
+        }
+
+        .photo-note {
+            position: absolute;
+            z-index: 2;
+            right: -22px;
+            bottom: 24px;
+            max-width: 190px;
+            margin: 0;
+            padding: 12px 16px;
+            background: var(--yellow-light);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.35;
+            transform: rotate(2deg);
+        }
+
+        .section { padding: 76px 0; }
+
+        .section-inner { width: min(1000px, calc(100% - 40px)); margin: auto; }
+
+        .section-heading { max-width: 620px; margin-bottom: 34px; }
+
+        .section-heading h2 {
+            margin-bottom: 10px;
+            font-family: var(--serif);
+            font-size: clamp(29px, 4vw, 38px);
+            line-height: 1.2;
+        }
+
+        .section-heading p { margin-bottom: 0; color: var(--muted); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            align-items: start;
+            gap: 54px;
+        }
+
+        .about-label {
+            margin: 0;
+            padding: 23px;
+            border-left: 5px solid var(--yellow);
+            background: var(--yellow-light);
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .about-copy p { margin-bottom: 16px; color: var(--muted); }
+        .about-copy p:last-child { margin-bottom: 0; }
+
+        .courses-section { background: #fff1e7; }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0 36px;
+            border-top: 1px solid var(--line);
+        }
+
+        .course-item {
+            min-height: 78px;
+            padding: 18px 2px;
+            display: grid;
+            grid-template-columns: 38px 1fr;
+            align-items: start;
+            gap: 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .course-number {
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--yellow);
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .course-item h3 { margin: 2px 0 0; font-size: 16px; line-height: 1.45; }
+
+        .course-provider {
+            margin: 26px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .dreams-section { padding-top: 0; }
+
+        .dreams-band {
+            padding: 34px clamp(24px, 5vw, 54px);
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 34px;
+            align-items: center;
+            background: var(--pink-light);
+        }
+
+        .dreams-band h2 {
+            margin: 0;
+            color: var(--pink-dark);
+            font-family: var(--serif);
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .dreams-band p { margin: 0; color: #56464b; }
+
+        .site-footer {
+            padding: 48px 0 24px;
+            background: #3b2b31;
+            color: #fff8f4;
+        }
+
+        .footer-inner {
+            width: min(1000px, calc(100% - 40px));
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 34px;
+        }
+
+        .site-footer h2 {
+            margin-bottom: 10px;
+            font-family: var(--serif);
+            font-size: 28px;
+        }
+
+        .site-footer p { margin-bottom: 0; color: #eadbdf; }
+
+        .social-list {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .social-list a { color: var(--yellow-light); font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+        .contact-note { margin-top: 12px !important; font-size: 13px; }
+
+        .copyright {
+            width: min(1000px, calc(100% - 40px));
+            margin: 34px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, .18);
+            color: #d9c9ce;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .nav-wrap { width: min(100% - 28px, 1120px); min-height: 60px; gap: 12px; }
+            .wordmark { font-size: 18px; }
+            .nav-links { gap: 12px; }
+            .nav-links a { font-size: 12px; }
+            .hero { padding: 44px 0 56px; }
+            .hero-inner, .about-grid, .dreams-band, .footer-inner { grid-template-columns: 1fr; }
+            .hero-inner, .section-inner, .footer-inner, .copyright { width: min(100% - 32px, 1000px); }
+            .hero-inner { gap: 34px; }
+            .hero-copy { font-size: 16px; }
+            .hero-photo-wrap { width: min(88%, 370px); justify-self: center; }
+            .hero-photo { height: 390px; }
+            .photo-note { right: -14px; }
+            .section { padding: 58px 0; }
+            .about-grid { gap: 26px; }
+            .course-list { grid-template-columns: 1fr; }
+            .dreams-section { padding-top: 0; }
+            .dreams-band { gap: 16px; }
+            .footer-inner { gap: 28px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-wrap" aria-label="Navegação principal">
+            <a class="wordmark" href="#inicio">Maria Luíza</a>
+            <div class="nav-links">
+                <a href="#sobre">Sobre mim</a>
+                <a href="#cursos">Cursos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow">Meu portfólio pessoal</p>
+                    <h1 id="hero-title">Oi, eu sou a <span>Maria Luíza!</span></h1>
+                    <p class="hero-copy">Tenho 14 anos, estou concluindo o Ensino Fundamental II e gosto de aprender, sonhar e descobrir novos caminhos.</p>
+                    <div class="hero-actions">
+                        <a class="button" href="#sobre">Me conheça</a>
+                        <a class="button secondary" href="#cursos">Ver meus cursos</a>
+                    </div>
+                </div>
+                <div class="hero-photo-wrap">
+                    <img class="hero-photo" src="GALERIA/FOTO%20MALU-%201.jpeg" alt="Maria Luíza em frente ao espelho">
+                    <p class="photo-note">Curiosa pelo mundo e cheia de planos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sobre" aria-labelledby="about-title">
+            <div class="section-inner about-grid">
+                <div>
+                    <p class="eyebrow">Um pouquinho de mim</p>
+                    <h2 class="about-label" id="about-title">Entre a escola, a praia e muitos sonhos.</h2>
+                </div>
+                <div class="about-copy">
+                    <p>Eu adoro animais e tenho dois companheiros muito especiais: meu cachorro Simba e minha cachorrinha Malu. Também amo viajar e, de todos os lugares, a praia é o meu favorito. Se pudesse, moraria pertinho do mar!</p>
+                    <p>Gosto muito de ir à escola, e História é minha matéria favorita. Tenho um carinho especial pela minha professora, que também me inspira a gostar ainda mais dessa matéria.</p>
+                    <p>Estou no meu último ano do Ensino Fundamental II e quero continuar estudando para entrar em uma faculdade pública e me formar na profissão dos meus sonhos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section courses-section" id="cursos" aria-labelledby="courses-title">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <p class="eyebrow">Aprendizado</p>
+                    <h2 id="courses-title">Cursos que estou fazendo</h2>
+                    <p>Conhecimentos que venho desenvolvendo nos cursos da AFESU e do SENAI.</p>
+                </div>
+                <div class="course-list">
+                    <article class="course-item"><span class="course-number">01</span><h3>Operador de microcomputador</h3></article>
+                    <article class="course-item"><span class="course-number">02</span><h3>Power BI</h3></article>
+                    <article class="course-item"><span class="course-number">03</span><h3>Implantação de Redes Locais</h3></article>
+                    <article class="course-item"><span class="course-number">04</span><h3>Excel Básico com IA generativa</h3></article>
+                    <article class="course-item"><span class="course-number">05</span><h3>Programação com IA generativa</h3></article>
+                </div>
+                <p class="course-provider">AFESU · SENAI</p>
+            </div>
+        </section>
+
+        <section class="section dreams-section" aria-labelledby="dreams-title">
+            <div class="section-inner dreams-band">
+                <h2 id="dreams-title">Meus próximos passos</h2>
+                <p>Quero estudar em uma faculdade pública, trabalhar na profissão que amo e conquistar minha independência financeira. Estou construindo meu caminho com dedicação, um passo de cada vez.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" id="contato">
+        <div class="footer-inner">
+            <div>
+                <p class="eyebrow">Vamos conversar?</p>
+                <h2>Redes e contato</h2>
+                <p>Adicione seus perfis e o contato que deseja compartilhar por aqui.</p>
+            </div>
+            <div>
+                <ul class="social-list">
+                    <li><a href="https://www.instagram.com/">Instagram — inserir meu perfil</a></li>
+                    <li><a href="https://www.tiktok.com/">TikTok — inserir meu perfil</a></li>
+                    <li><span>WhatsApp — inserir meu link de contato</span></li>
+                </ul>
+                <p class="contact-note">Para o WhatsApp, use o link wa.me com seu número e código do país.</p>
+            </div>
+        </div>
+        <p class="copyright">© 2026 Maria Luíza · Meu portfólio</p>
+    </footer>
+</body>
+</html>

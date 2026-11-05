@@ -258,11 +258,37 @@
 
         .course-item h3 { margin: 2px 0 0; font-size: 16px; line-height: 1.45; }
 
-        .course-provider {
-            margin: 26px 0 0;
+        .course-highlights {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .course-highlight {
+            margin: 0;
+            padding: 14px 16px;
+            border-left: 4px solid var(--pink);
+            background: #fffaf6;
             color: var(--muted);
             font-size: 14px;
-            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .course-highlight strong {
+            display: block;
+            margin-top: 3px;
+            color: var(--pink-dark);
+            font-size: 16px;
+        }
+
+        .course-highlight:last-child {
+            border-left-color: var(--yellow);
+            background: var(--yellow-light);
+        }
+
+        .course-highlight:last-child strong {
+            color: var(--ink);
         }
 
         .dreams-section { padding-top: 0; }
@@ -344,7 +370,7 @@
             .photo-note { right: -14px; }
             .section { padding: 58px 0; }
             .about-grid { gap: 26px; }
-            .course-list { grid-template-columns: 1fr; }
+            .course-list, .course-highlights { grid-template-columns: 1fr; }
             .dreams-section { padding-top: 0; }
             .dreams-band { gap: 16px; }
             .footer-inner { gap: 28px; }
@@ -404,8 +430,8 @@
             <div class="section-inner">
                 <div class="section-heading">
                     <p class="eyebrow">Aprendizado</p>
-                    <h2 id="courses-title">Cursos que estou fazendo</h2>
-                    <p>Conhecimentos que venho desenvolvendo nos cursos da AFESU e do SENAI.</p>
+                    <h2 id="courses-title">Cursos realizados</h2>
+                    <p>Formações realizadas na AFESU Morro Velho, em parceria com o SENAI.</p>
                 </div>
                 <div class="course-list">
                     <article class="course-item"><span class="course-number">01</span><h3>Operador de microcomputador</h3></article>
@@ -414,7 +440,13 @@
                     <article class="course-item"><span class="course-number">04</span><h3>Excel Básico com IA generativa</h3></article>
                     <article class="course-item"><span class="course-number">05</span><h3>Programação com IA generativa</h3></article>
                 </div>
-                <p class="course-provider">AFESU · SENAI</p>
+                <div class="course-highlights" aria-label="Instituições e certificação">
+                    <p class="course-highlight">Instituição<strong>AFESU Morro Velho</strong></p>
+                    <p class="course-highlight">Parceria<strong>SENAI</strong></p>
+                    <p class="course-highlight">Certificação<strong>Certificado SENAI</strong></p>
+                </div>
+                <a class="button" href="https://afesu.org.br/unidade/morro-velho/" target="_blank" rel="noopener noreferrer">Saiba mais sobre a AFESU</a>
+                <a class="button secondary" href="https://www.sp.senai.br/unidade/leopoldina/" target="_blank" rel="noopener noreferrer">Saiba mais sobre o SENAI</a>
             </div>
         </section>
 
